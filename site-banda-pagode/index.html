@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nome da Banda | Pagode & Samba</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Ícones Lucide -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Suavizar a rolagem da página */
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body class="bg-zinc-950 text-zinc-100 font-sans antialiased">
+
+  <!-- NAVBAR / HEADER -->
+  <header class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+      <a href="#" class="text-xl font-black tracking-widest text-amber-500 uppercase">
+        NOME DA BANDA
+      </a>
+      
+      <!-- Navegação Web/Mobile -->
+      <nav class="hidden md:flex gap-6 font-medium text-sm text-zinc-300">
+        <a href="#sobre" class="hover:text-amber-500 transition-colors">Sobre</a>
+        <a href="#musicas" class="hover:text-amber-500 transition-colors">Músicas</a>
+        <a href="#fotos" class="hover:text-amber-500 transition-colors">Fotos</a>
+        <a href="#contato" class="hover:text-amber-500 transition-colors">Contato</a>
+      </nav>
+
+      <a href="#contato" class="bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold px-4 py-2 rounded-full text-sm transition-all flex items-center gap-2 shadow-lg shadow-amber-500/20">
+        <i data-lucide="calendar">
+        Contratar Show
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative min-h-screen flex items-center justify-center pt-20 px-4 bg-gradient-to-b from-zinc-900 via-zinc-950 to-zinc-950 overflow-hidden">
+    <!-- Imagem de fundo com opacidade -->
+    <div class="absolute inset-0 opacity-20 pointer-events-none">
+      <img src="assets/foto-principal.jpg" alt="Banda de Pagode" class="w-full h-full object-cover">
+    </div>
+
+    <div class="relative z-10 max-w-4xl mx-auto text-center space-y-6">
+      <span class="inline-block bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full">
+        Pagode & Samba de Primeira
+      </span>
+      <h1 class="text-4xl md:text-7xl font-extrabold tracking-tight text-zinc-100">
+        O melhor do pagode para o seu evento
+      </h1>
+      <p class="text-zinc-400 text-base md:text-xl max-w-2xl mx-auto">
+        Alegria, energia e o melhor repertório para animar sua festa, aniversário, casamento ou evento corporativo.
+      </p>
+
+      <!-- Botões Principais -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+        <!-- Substitua '5534999999999' pelo WhatsApp real da banda com DDD -->
+        <a href="https://wa.me/5534999999999?text=Olá!%20Gostaria%20de%20fazer%20um%20orçamento%20para%20um%20show!" target="_blank" class="w-full sm:w-auto bg-green-500 hover:bg-green-400 text-zinc-950 font-bold px-6 py-3.5 rounded-xl flex items-center justify-center gap-3 transition-all shadow-lg shadow-green-500/20">
+          <i data-lucide="message-circle" class="w-5 h-5"></i>
+          Fazer Orçamento no WhatsApp
+        </a>
+        <a href="#musicas" class="w-full sm:w-auto bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-semibold px-6 py-3.5 rounded-xl flex items-center justify-center gap-3 border border-zinc-700 transition-all">
+          <i data-lucide="play-circle" class="w-5 h-5 text-amber-500"></i>
+          Ouvir Músicas
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE / BIO -->
+  <section id="sobre" class="py-20 px-4 bg-zinc-900/50 border-t border-zinc-800/50">
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+      <div class="relative rounded-2xl overflow-hidden shadow-2xl border border-zinc-800">
+        <img src="assets/foto-bio.jpg" alt="Foto da Banda" class="w-full h-80 md:h-[400px] object-cover">
+      </div>
+      <div class="space-y-4">
+        <h2 class="text-3xl font-bold text-amber-500">Nossa História</h2>
+        <p class="text-zinc-300 leading-relaxed">
+          Escreva aqui a biografia da banda. Fale sobre quando a banda surgiu, de onde vocês são, quais são as influências musicais (ex: Exaltasamba, Thiaguinho, Sorriso Maroto, Revelação) e o que os contratantes podem esperar do show.
+        </p>
+        <p class="text-zinc-400 leading-relaxed">
+          Com um show dinâmico e contagiante, trazemos os clássicos dos anos 90 até os maiores sucessos do pagode atual.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLAYER SPOTIFY -->
+  <section id="musicas" class="py-20 px-4 max-w-5xl mx-auto">
+    <div class="text-center space-y-3 mb-10">
+      <h2 class="text-3xl font-bold text-zinc-100">Ouça no Spotify</h2>
+      <p class="text-zinc-400">Confira nossos últimos lançamentos e faixas preferidas</p>
+    </div>
+
+    <div class="bg-zinc-900 p-4 md:p-6 rounded-2xl border border-zinc-800 shadow-xl">
+      <!-- Aqui entra o iframe do Spotify do grupo -->
+      <!-- Troque a URL do iframe abaixo pelo link embed do Spotify da banda -->
+      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DXaB1R92I33R1?utm_source=generator&theme=0" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+  </section>
+
+  <!-- GALERIA / FOTOS -->
+  <section id="fotos" class="py-20 px-4 bg-zinc-900/30 border-t border-zinc-800/50">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center space-y-3 mb-10">
+        <h2 class="text-3xl font-bold text-zinc-100">Galeria de Fotos</h2>
+        <p class="text-zinc-400">Um pouco do clima e da energia dos nossos shows</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        <div class="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-900 h-64">
+          <img src="assets/galeria/foto1.jpg" alt="Show" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-900 h-64">
+          <img src="assets/galeria/foto2.jpg" alt="Show" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+        </div>
+        <div class="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-900 h-64">
+          <img src="assets/galeria/foto3.jpg" alt="Show" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REDES SOCIAIS E CONTATO -->
+  <section id="contato" class="py-20 px-4 max-w-4xl mx-auto text-center">
+    <h2 class="text-3xl font-bold text-zinc-100 mb-3">Siga a Banda & Contrate</h2>
+    <p class="text-zinc-400 mb-8">Acompanhe nossas redes sociais para conferir a agenda semanal</p>
+
+    <div class="flex flex-wrap justify-center gap-4">
+      <!-- WhatsApp -->
+      <a href="https://wa.me/5534999999999" target="_blank" class="flex items-center gap-2 bg-zinc-900 border border-zinc-800 hover:border-green-500/50 text-zinc-200 px-5 py-3 rounded-xl hover:text-green-400 transition-all">
+        <i data-lucide="message-circle" class="w-5 h-5 text-green-500"></i>
+        WhatsApp
+      </a>
+
+      <!-- Instagram -->
+      <a href="https://instagram.com/SEU_INSTAGRAM" target="_blank" class="flex items-center gap-2 bg-zinc-900 border border-zinc-800 hover:border-pink-500/50 text-zinc-200 px-5 py-3 rounded-xl hover:text-pink-400 transition-all">
+        <i data-lucide="instagram" class="w-5 h-5 text-pink-500"></i>
+        Instagram
+      </a>
+
+      <!-- YouTube -->
+      <a href="https://youtube.com/SEU_CANAL" target="_blank" class="flex items-center gap-2 bg-zinc-900 border border-zinc-800 hover:border-red-500/50 text-zinc-200 px-5 py-3 rounded-xl hover:text-red-400 transition-all">
+        <i data-lucide="youtube" class="w-5 h-5 text-red-500"></i>
+        YouTube
+      </a>
+
+      <!-- Facebook -->
+      <a href="https://facebook.com/SuaPagina" target="_blank" class="flex items-center gap-2 bg-zinc-900 border border-zinc-800 hover:border-blue-500/50 text-zinc-200 px-5 py-3 rounded-xl hover:text-blue-400 transition-all">
+        <i data-lucide="facebook" class="w-5 h-5 text-blue-500"></i>
+        Facebook
+      </a>
+
+      <!-- Spotify -->
+      <a href="https://open.spotify.com/artist/SEU_ID" target="_blank" class="flex items-center gap-2 bg-zinc-900 border border-zinc-800 hover:border-emerald-500/50 text-zinc-200 px-5 py-3 rounded-xl hover:text-emerald-400 transition-all">
+        <i data-lucide="music" class="w-5 h-5 text-emerald-500"></i>
+        Spotify
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-8 border-t border-zinc-800 text-center text-xs text-zinc-500">
+    <p>© <script>document.write(new Date().getFullYear())</script> Nome da Banda. Todos os direitos reservados.</p>
+  </footer>
+
+  <!-- Script para ativar os ícones -->
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>
