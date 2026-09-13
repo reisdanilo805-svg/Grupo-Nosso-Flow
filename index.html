@@ -1,206 +1,256 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Grupo Nosso Flow | Pagode & Samba</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Grupo Nosso Flow | Pagode de Araxá</title>
 
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  
-  <!-- Ícones Lucide -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@latest"></script>
 
-  <style>
-    html {
-      scroll-behavior: smooth;
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          night: '#1C130D',
+          nightCard: '#28190F',
+          nightLine: '#3A271A',
+          wine: '#A8324B',
+          wineDeep: '#7C2236',
+          gold: '#D9A22C',
+          goldLight: '#F0C766',
+          cream: '#F4EAD0',
+          bodytxt: '#D8C6A6',
+        },
+        fontFamily: {
+          display: ['"Baloo 2"', 'sans-serif'],
+          body: ['"Work Sans"', 'sans-serif'],
+        },
+      }
     }
-  </style>
-</head>
-<body class="bg-zinc-950 text-zinc-100 font-sans antialiased">
+  }
+</script>
 
-<!-- NAVBAR / HEADER -->
-<header class="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-md border-b border-zinc-800">
-  <div class="max-w-6xl mx-auto px-4 py-3 flex justify-between items-center">
-    
-    <!-- Logo do Nosso Flow em estilo Pagode -->
-    <a href="#" class="flex items-center group">
-      <span class="text-2xl md:text-4xl font-extrabold tracking-wide uppercase bg-gradient-to-r from-amber-300 via-amber-500 to-amber-600 bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(245,158,11,0.3)] transition-transform group-hover:scale-105" style="font-family: 'Titan One', 'Righteous', sans-serif;">
-        Nosso Flow
-      </span>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background-color: #1C130D; }
+
+  /* textura sutil de couro/madeira no lugar de um fundo liso */
+  .grain {
+    background-image: radial-gradient(circle at 1px 1px, rgba(244,234,208,0.045) 1px, transparent 0);
+    background-size: 18px 18px;
+  }
+
+  .frame-scallop {
+    --r: 14px;
+    -webkit-mask-image: radial-gradient(circle var(--r) at var(--r) var(--r), transparent calc(var(--r) - 1px), black var(--r)),
+      radial-gradient(circle var(--r) at calc(100% - var(--r)) var(--r), transparent calc(var(--r) - 1px), black var(--r));
+  }
+
+  @keyframes riseIn {
+    from { opacity: 0; transform: translateY(18px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .rise-1 { animation: riseIn 0.7s cubic-bezier(.2,.7,.3,1) 0.05s both; }
+  .rise-2 { animation: riseIn 0.7s cubic-bezier(.2,.7,.3,1) 0.2s both; }
+  .rise-3 { animation: riseIn 0.7s cubic-bezier(.2,.7,.3,1) 0.35s both; }
+
+  @media (prefers-reduced-motion: reduce) {
+    .rise-1, .rise-2, .rise-3 { animation: none; }
+  }
+
+  .wave-divider { line-height: 0; }
+</style>
+</head>
+
+<body class="font-body text-bodytxt grain">
+
+<!-- HEADER -->
+<header class="fixed top-0 left-0 right-0 z-50 bg-night/90 backdrop-blur-sm border-b-2 border-nightLine">
+  <div class="max-w-6xl mx-auto px-5 py-3 flex justify-between items-center">
+    <a href="#" class="flex items-center gap-2">
+      <span class="w-9 h-9 rounded-full bg-wineDeep flex items-center justify-center text-goldLight font-display font-bold text-sm border-2 border-nightLine">NF</span>
+      <span class="text-xl md:text-2xl font-display font-bold text-goldLight">Nosso Flow</span>
     </a>
-    
-    <nav class="hidden md:flex gap-6 font-medium text-sm text-zinc-300">
-      <a href="#biografia" class="hover:text-amber-500 transition-colors">Biografia</a>
-      <a href="#musicas" class="hover:text-amber-500 transition-colors">Músicas</a>
-      <a href="#fotos" class="hover:text-amber-500 transition-colors">Fotos</a>
-      <a href="#contato" class="hover:text-amber-500 transition-colors">Contato</a>
+
+    <nav class="hidden md:flex gap-7 font-medium text-sm text-bodytxt/90">
+      <a href="#biografia" class="hover:text-goldLight transition-colors">Quem somos</a>
+      <a href="#musicas" class="hover:text-goldLight transition-colors">Músicas</a>
+      <a href="#fotos" class="hover:text-goldLight transition-colors">Fotos</a>
+      <a href="#contato" class="hover:text-goldLight transition-colors">Contato</a>
     </nav>
 
-    <a href="#contato" class="bg-amber-500 hover:bg-amber-400 text-zinc-950 font-bold px-4 py-2 rounded-full text-sm transition-all shadow-lg shadow-amber-500/20">
-      Contratar Show
+    <a href="#contato" class="bg-gold hover:bg-goldLight text-night font-display font-semibold px-5 py-2 rounded-full text-sm transition-colors shadow-sm">
+      Contratar show
     </a>
   </div>
 </header>
 
-  <!-- HERO SECTION -->
-  <section class="relative min-h-screen flex items-center justify-center pt-20 px-4 bg-gradient-to-b from-zinc-900 via-zinc-950 to-zinc-950 overflow-hidden">
-    <div class="absolute inset-0 opacity-30 pointer-events-none">
-      <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=1200" alt="Grupo Nosso Flow" class="w-full h-full object-cover">
-    </div>
+<!-- HERO -->
+<section class="relative pt-32 md:pt-40 pb-16 px-5 overflow-hidden">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
 
-    <div class="relative z-10 max-w-4xl mx-auto text-center space-y-6">
-      <span class="inline-block bg-amber-500/10 text-amber-400 border border-amber-500/20 text-xs font-semibold uppercase tracking-widest px-4 py-1.5 rounded-full">
-        Pagode & Samba de Primeira • Araxá (MG)
-      </span>
-      <h1 class="text-4xl md:text-7xl font-extrabold tracking-tight text-zinc-100">
-        O pagode que conquista o público por onde passa
+    <div class="md:col-span-6 space-y-6 rise-1">
+      <p class="text-goldLight font-display font-semibold text-lg">Araxá (MG) · desde 2022</p>
+      <h1 class="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-cream leading-[1.05]">
+        O pagode que contagia onde quer que passe
       </h1>
-      <p class="text-zinc-400 text-base md:text-xl max-w-2xl mx-auto">
-        4 anos de história levando alegria, energia e muito pagode para mais de 20 cidades da região.
+      <p class="text-bodytxt/80 text-lg max-w-md leading-relaxed">
+        Quatro anos de roda, mais de 20 cidades da região e um repertório que mistura o pagode raiz com a energia de um show pra dançar do início ao fim.
       </p>
 
-      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-        <a href="https://wa.me/5500000000000?text=Olá!%20Gostaria%20de%20fazer%20um%20orçamento%20para%20um%20show%20do%20Grupo%20Nosso%20Flow!" target="_blank" class="w-full sm:w-auto bg-green-500 hover:bg-green-400 text-zinc-950 font-bold px-6 py-3.5 rounded-xl flex items-center justify-center gap-3 transition-all shadow-lg shadow-green-500/20">
+      <div class="flex flex-col sm:flex-row gap-3 pt-2">
+        <a href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20or%C3%A7amento%20para%20um%20show%20do%20Grupo%20Nosso%20Flow!" target="_blank"
+           class="inline-flex items-center justify-center gap-2 bg-gold hover:bg-goldLight text-night font-display font-semibold px-6 py-3.5 rounded-full transition-colors shadow-md">
           <i data-lucide="message-circle" class="w-5 h-5"></i>
-          Fazer Orçamento no WhatsApp
+          Pedir orçamento
         </a>
-        <a href="#musicas" class="w-full sm:w-auto bg-zinc-800 hover:bg-zinc-700 text-zinc-200 font-semibold px-6 py-3.5 rounded-xl flex items-center justify-center gap-3 border border-zinc-700 transition-all">
-          <i data-lucide="play-circle" class="w-5 h-5 text-amber-500"></i>
-          Ouvir Músicas
+        <a href="#musicas"
+           class="inline-flex items-center justify-center gap-2 bg-transparent border-2 border-nightLine hover:border-goldLight hover:text-goldLight text-cream font-display font-semibold px-6 py-3.5 rounded-full transition-colors">
+          <i data-lucide="play-circle" class="w-5 h-5"></i>
+          Ouvir agora
         </a>
       </div>
     </div>
-  </section>
 
-  <!-- BIOGRAFIA -->
-  <section id="biografia" class="py-20 px-4 bg-zinc-900/50 border-t border-zinc-800/50">
-    <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-      
-      <!-- Imagem Principal da Bio -->
-      <div class="lg:col-span-5 relative rounded-2xl overflow-hidden shadow-2xl border border-zinc-800">
-        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800" alt="Grupo Nosso Flow" class="w-full h-80 lg:h-[480px] object-cover">
+    <div class="md:col-span-6 relative rise-2">
+      <div class="relative rounded-[2.5rem] overflow-hidden frame-scallop border-4 border-nightLine shadow-xl shadow-black/40">
+        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=900" alt="Grupo Nosso Flow em show" class="w-full h-[340px] md:h-[420px] object-cover brightness-90">
+      </div>
+      <div class="absolute -bottom-5 -left-5 bg-gold text-night font-display font-bold px-5 py-3 rounded-2xl shadow-lg rotate-[-3deg] border-2 border-nightLine hidden sm:block">
+        + de 20 cidades
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="wave-divider text-nightLine">
+  <svg viewBox="0 0 1200 40" preserveAspectRatio="none" class="w-full h-8"><path d="M0 20 Q 50 0, 100 20 T 200 20 T 300 20 T 400 20 T 500 20 T 600 20 T 700 20 T 800 20 T 900 20 T 1000 20 T 1100 20 T 1200 20 V40 H0 Z" fill="currentColor"/></svg>
+</div>
+
+<!-- BIOGRAFIA -->
+<section id="biografia" class="py-20 px-5 bg-nightCard/40">
+  <div class="max-w-5xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+
+    <div class="lg:col-span-5 space-y-5">
+      <div class="rounded-3xl overflow-hidden border-4 border-nightLine shadow-lg shadow-black/40">
+        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=800" alt="Grupo Nosso Flow" class="w-full h-72 lg:h-96 object-cover brightness-90">
       </div>
 
-      <!-- Texto da Bio -->
-      <div class="lg:col-span-7 space-y-6">
-        <div>
-          <span class="text-amber-500 font-semibold text-sm uppercase tracking-wider">Biografia</span>
-          <h2 class="text-3xl md:text-4xl font-extrabold text-zinc-100 mt-1">
-            NOSSO FLOW: O pagode que conquista o público por onde passa
-          </h2>
-        </div>
-
-        <p class="text-zinc-300 leading-relaxed">
-          Natural de <strong>Araxá (MG)</strong>, o Grupo Nosso Flow celebra 4 anos de história, levando alegria, energia e muito pagode para diferentes cidades da região. Fundado em 2022 por dois amigos que compartilhavam o sonho de criar um grupo de pagode, o projeto cresceu, conquistou espaço e hoje é reconhecido pelo carinho e pela conexão que cria com o público em cada apresentação.
-        </p>
-
-        <!-- Cards dos Integrantes com Foto -->
-        <div class="bg-zinc-950/80 p-5 rounded-xl border border-zinc-800/80 space-y-4">
-          <h3 class="text-xs font-bold text-amber-400 uppercase tracking-widest flex items-center justify-center gap-2">
-            <i data-lucide="users" class="w-4 h-4"></i> Integrantes da Banda
-          </h3>
-          <div class="grid grid-cols-3 gap-3 text-center">
-            
-           <!-- TH -->
-<div class="bg-zinc-900 p-3 rounded-lg border border-zinc-800 flex flex-col items-center">
-  <img src="th.jpg.jpg" alt="TH - Vocal" class="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border-2 border-amber-500/50 mb-2">
-  <p class="font-bold text-zinc-100 text-sm">TH</p>
-  <p class="text-xs text-zinc-400">Vocal</p>
-</div>
-
-<!-- Nicolas -->
-<div class="bg-zinc-900 p-3 rounded-lg border border-zinc-800 flex flex-col items-center">
-  <img src="nicolas.jpg.jpg" alt="Nicolas - Violão" class="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border-2 border-amber-500/50 mb-2">
-  <p class="font-bold text-zinc-100 text-sm">Nicolas</p>
-  <p class="text-xs text-zinc-400">Violão</p>
-</div>
-
-<!-- Pablo -->
-<div class="bg-zinc-900 p-3 rounded-lg border border-zinc-800 flex flex-col items-center">
-  <img src="pablo.jpg.jpg" alt="Pablo - Pandeiro" class="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border-2 border-amber-500/50 mb-2">
-  <p class="font-bold text-zinc-100 text-sm">Pablo</p>
-  <p class="text-xs text-zinc-400">Pandeiro</p>
-</div>
-
+      <div class="bg-nightCard rounded-3xl border-2 border-nightLine p-5 space-y-4">
+        <h3 class="font-display font-semibold text-goldLight">Quem toca com a gente</h3>
+        <div class="flex justify-around">
+          <div class="flex flex-col items-center gap-2">
+            <img src="th.jpg.jpg" alt="TH - Vocal" class="w-16 h-16 rounded-full object-cover border-2 border-gold">
+            <p class="font-display font-semibold text-sm text-cream">TH</p>
+            <p class="text-xs text-bodytxt/70">Vocal</p>
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <img src="nicolas.jpg.jpg" alt="Nicolas - Violão" class="w-16 h-16 rounded-full object-cover border-2 border-gold">
+            <p class="font-display font-semibold text-sm text-cream">Nicolas</p>
+            <p class="text-xs text-bodytxt/70">Violão</p>
+          </div>
+          <div class="flex flex-col items-center gap-2">
+            <img src="pablo.jpg.jpg" alt="Pablo - Pandeiro" class="w-16 h-16 rounded-full object-cover border-2 border-gold">
+            <p class="font-display font-semibold text-sm text-cream">Pablo</p>
+            <p class="text-xs text-bodytxt/70">Pandeiro</p>
           </div>
         </div>
-
-        <p class="text-zinc-300 leading-relaxed">
-          Com um repertório que mistura o pagode tradicional com influências de diversos estilos musicais, o Nosso Flow entrega um show moderno, animado e envolvente, agradando públicos de todas as idades e transformando cada apresentação em uma grande celebração.
-        </p>
-
-        <p class="text-zinc-300 leading-relaxed">
-          Ao longo da trajetória, o grupo já se apresentou em <strong>mais de 20 cidades</strong>, consolidando sua presença no cenário musical regional e construindo uma base de fãs cada vez mais fiel. Entre os trabalhos autorais, destaca-se o lançamento de <strong>"VIBEZINHA do NF"</strong>, disponível no YouTube, marcando mais um passo importante na história da banda e reforçando sua identidade musical.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- PLAYER SPOTIFY -->
-  <section id="musicas" class="py-20 px-4 max-w-5xl mx-auto">
-    <div class="text-center space-y-3 mb-10">
-      <h2 class="text-3xl font-bold text-zinc-100">Ouça no Spotify</h2>
-      <p class="text-zinc-400">Confira nossas faixas diretamente no player abaixo</p>
-    </div>
-
-    <div class="bg-zinc-900 p-4 md:p-6 rounded-2xl border border-zinc-800 shadow-xl">
-      <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/3FJIJxy9TOeXsZ8GCxxSr7?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-    </div>
-  </section>
-
-  <!-- GALERIA / FOTOS -->
-  <section id="fotos" class="py-20 px-4 bg-zinc-900/30 border-t border-zinc-800/50">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center space-y-3 mb-10">
-        <h2 class="text-3xl font-bold text-zinc-100">Galeria de Fotos</h2>
-      </div>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-        <div class="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-900 h-64">
-          <img src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=500" alt="Show Nosso Flow" class="w-full h-full object-cover">
-        </div>
-        <div class="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-900 h-64">
-          <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=500" alt="Show Nosso Flow" class="w-full h-full object-cover">
-        </div>
-        <div class="rounded-xl overflow-hidden border border-zinc-800 bg-zinc-900 h-64">
-          <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=500" alt="Show Nosso Flow" class="w-full h-full object-cover">
-        </div>
       </div>
     </div>
-  </section>
 
-  <!-- REDES SOCIAIS E CONTATO -->
-  <section id="contato" class="py-20 px-4 max-w-4xl mx-auto text-center">
-    <h2 class="text-3xl font-bold text-zinc-100 mb-8">Siga o Grupo Nosso Flow & Contrate</h2>
+    <div class="lg:col-span-7 space-y-5">
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-cream">
+        Uma amizade que virou grupo, e um grupo que virou roda
+      </h2>
 
-    <div class="flex flex-wrap justify-center gap-4">
-      <a href="https://wa.me/5500000000000?text=Olá!%20Gostaria%20de%20fazer%20um%20orçamento%20para%20um%20show!" target="_blank" class="flex items-center gap-2 bg-zinc-900 border border-zinc-800 text-zinc-200 px-5 py-3 rounded-xl hover:text-green-400 transition-all">
-        <i data-lucide="message-circle" class="w-5 h-5 text-green-500"></i> WhatsApp
-      </a>
+      <p class="text-bodytxt/85 leading-relaxed">
+        O Nosso Flow nasceu em Araxá (MG) em 2022, quando dois amigos resolveram tirar do papel o sonho de ter um grupo de pagode. De lá pra cá o projeto cresceu, ganhou espaço e hoje é reconhecido pelo carinho que tem com o público em cada apresentação.
+      </p>
 
-      <a href="https://www.instagram.com/grnossoflow" target="_blank" class="flex items-center gap-2 bg-zinc-900 border border-zinc-800 text-zinc-200 px-5 py-3 rounded-xl hover:text-pink-400 transition-all">
-        <i data-lucide="instagram" class="w-5 h-5 text-pink-500"></i> Instagram
-      </a>
+      <p class="text-bodytxt/85 leading-relaxed">
+        O repertório mistura o pagode tradicional com influências de outros estilos, o que dá ao show uma cara moderna e animada, feita pra agradar gente de todas as idades e transformar qualquer palco numa festa.
+      </p>
 
-      <a href="https://youtube.com/@grnossoflow" target="_blank" class="flex items-center gap-2 bg-zinc-900 border border-zinc-800 text-zinc-200 px-5 py-3 rounded-xl hover:text-red-400 transition-all">
-        <i data-lucide="youtube" class="w-5 h-5 text-red-500"></i> YouTube
-      </a>
-
-      <a href="https://open.spotify.com/track/3FJIJxy9TOeXsZ8GCxxSr7" target="_blank" class="flex items-center gap-2 bg-zinc-900 border border-zinc-800 text-zinc-200 px-5 py-3 rounded-xl hover:text-emerald-400 transition-all">
-        <i data-lucide="music" class="w-5 h-5 text-emerald-500"></i> Spotify
-      </a>
+      <p class="text-bodytxt/85 leading-relaxed">
+        Já foram mais de 20 cidades da região, uma base de fãs cada vez mais fiel e o lançamento de <strong class="text-goldLight">"Vibezinha do NF"</strong>, faixa autoral disponível no YouTube que marca um novo capítulo na identidade musical da banda.
+      </p>
     </div>
-  </section>
 
-  <!-- FOOTER -->
-  <footer class="py-8 border-t border-zinc-800 text-center text-xs text-zinc-500">
-    <p>© Grupo Nosso Flow. Todos os direitos reservados.</p>
-  </footer>
+  </div>
+</section>
 
-  <script>
-    lucide.createIcons();
-  </script>
+<!-- MÚSICAS -->
+<section id="musicas" class="py-20 px-5 max-w-4xl mx-auto text-center">
+  <h2 class="text-3xl font-display font-bold text-cream mb-2">Toca aí</h2>
+  <p class="text-bodytxt/80 mb-10">Ouça as faixas do Nosso Flow direto no Spotify</p>
+
+  <div class="bg-nightCard p-4 md:p-5 rounded-3xl border-2 border-nightLine shadow-lg shadow-black/40">
+    <iframe style="border-radius:16px" src="https://open.spotify.com/embed/track/3FJIJxy9TOeXsZ8GCxxSr7?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+  </div>
+</section>
+
+<div class="wave-divider text-nightLine rotate-180">
+  <svg viewBox="0 0 1200 40" preserveAspectRatio="none" class="w-full h-8"><path d="M0 20 Q 50 0, 100 20 T 200 20 T 300 20 T 400 20 T 500 20 T 600 20 T 700 20 T 800 20 T 900 20 T 1000 20 T 1100 20 T 1200 20 V40 H0 Z" fill="currentColor"/></svg>
+</div>
+
+<!-- GALERIA -->
+<section id="fotos" class="py-20 px-5 bg-nightCard/40">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-3xl font-display font-bold text-cream text-center mb-10">Registros do palco</h2>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[140px]">
+      <div class="col-span-2 row-span-2 rounded-2xl overflow-hidden border-2 border-nightLine shadow-md shadow-black/40">
+        <img src="https://images.unsplash.com/photo-1465847899084-d164df4dedc6?w=700" alt="Show Nosso Flow" class="w-full h-full object-cover brightness-90">
+      </div>
+      <div class="col-span-2 rounded-2xl overflow-hidden border-2 border-nightLine shadow-md shadow-black/40">
+        <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=700" alt="Show Nosso Flow" class="w-full h-full object-cover brightness-90">
+      </div>
+      <div class="col-span-1 row-span-2 rounded-2xl overflow-hidden border-2 border-nightLine shadow-md shadow-black/40">
+        <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=500" alt="Show Nosso Flow" class="w-full h-full object-cover brightness-90">
+      </div>
+      <div class="col-span-1 rounded-2xl overflow-hidden border-2 border-nightLine shadow-md shadow-black/40 bg-gold/10 flex items-center justify-center">
+        <i data-lucide="music" class="w-8 h-8 text-goldLight"></i>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato" class="py-20 px-5 max-w-3xl mx-auto text-center">
+  <h2 class="text-3xl font-display font-bold text-cream mb-3">Bora marcar o próximo show?</h2>
+  <p class="text-bodytxt/80 mb-8">Fala com a gente e acompanha os bastidores nas redes</p>
+
+  <div class="flex flex-wrap justify-center gap-3">
+    <a href="https://wa.me/5500000000000?text=Ol%C3%A1!%20Gostaria%20de%20fazer%20um%20or%C3%A7amento%20para%20um%20show!" target="_blank"
+       class="flex items-center gap-2 bg-nightCard border-2 border-nightLine text-cream px-5 py-3 rounded-full hover:border-goldLight hover:text-goldLight transition-colors">
+      <i data-lucide="message-circle" class="w-5 h-5"></i> WhatsApp
+    </a>
+    <a href="https://www.instagram.com/grnossoflow" target="_blank"
+       class="flex items-center gap-2 bg-nightCard border-2 border-nightLine text-cream px-5 py-3 rounded-full hover:border-goldLight hover:text-goldLight transition-colors">
+      <i data-lucide="instagram" class="w-5 h-5"></i> Instagram
+    </a>
+    <a href="https://youtube.com/@grnossoflow" target="_blank"
+       class="flex items-center gap-2 bg-nightCard border-2 border-nightLine text-cream px-5 py-3 rounded-full hover:border-goldLight hover:text-goldLight transition-colors">
+      <i data-lucide="youtube" class="w-5 h-5"></i> YouTube
+    </a>
+    <a href="https://open.spotify.com/track/3FJIJxy9TOeXsZ8GCxxSr7" target="_blank"
+       class="flex items-center gap-2 bg-nightCard border-2 border-nightLine text-cream px-5 py-3 rounded-full hover:border-goldLight hover:text-goldLight transition-colors">
+      <i data-lucide="music" class="w-5 h-5"></i> Spotify
+    </a>
+  </div>
+</section>
+
+<footer class="py-8 border-t-2 border-nightLine text-center text-xs text-bodytxt/50">
+  <p>© Grupo Nosso Flow. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+  lucide.createIcons();
+</script>
 </body>
 </html>
